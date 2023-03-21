@@ -3,9 +3,9 @@ let color = "black";
 document.addEventListener("DOMContentLoaded", function () {
   createBoard(16);
 
-  const btn_popup = document.querySelector("#popup");
+  const btnPopup = document.querySelector("#popup");
 
-  btn_popup.addEventListener("click", function () {
+  btnPopup.addEventListener("click", function () {
     const size = getSize();
     createBoard(size);
   });
