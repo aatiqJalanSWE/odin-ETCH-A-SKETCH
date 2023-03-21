@@ -2,10 +2,8 @@ let color = "black";
 
 document.addEventListener("DOMContentLoaded", function () {
   createBoard(16);
-
-  const btnPopup = document.querySelector("#popup");
-
-  btnPopup.addEventListener("click", function () {
+  const btn_popup = document.querySelector("#popup");
+  btn_popup.addEventListener("click", function () {
     const size = getSize();
     createBoard(size);
   });
@@ -17,10 +15,10 @@ function createBoard(size) {
   board.style.gridTemplateColumns = `repeat(${size},1fr)`;
   board.style.gridTemplateRows = `repeat(${size},1fr)`;
 
-  const numDivs = size * size;
+  let numDivs = size * size;
 
   for (let i = 0; i < numDivs; i++) {
-    const div = document.createElement("div");
+    let div = document.createElement("div");
     div.addEventListener("mouseover", colorDiv);
 
     board.insertAdjacentElement("beforeend", div);
@@ -29,9 +27,7 @@ function createBoard(size) {
 
 function getSize() {
   const input = prompt("Size of the board");
-
   const message = document.querySelector("#text");
-
   if (input == "") {
     message.innerHTML = "Please provide a number";
   } else if (input < 0 || input > 100) {
@@ -55,7 +51,6 @@ function setColor(colorChoice) {
 }
 
 function resetBoard() {
-  const divs = document.querySelectorAll("div");
-
+  let divs = document.querySelectorAll("div");
   divs.forEach((div) => (div.style.backgroundColor = "white"));
 }
