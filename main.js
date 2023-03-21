@@ -17,12 +17,12 @@ function createBoard(size) {
   board.style.gridTemplateColumns = `repeat(${size},1fr)`;
   board.style.gridTemplateRows = `repeat(${size},1fr)`;
 
-  let numDivs = size * size;
+  const numDivs = size * size;
 
   for (let i = 0; i < numDivs; i++) {
     let div = document.createElement("div");
-    div.addEventListener("mouseover", colorDiv);
 
+    div.addEventListener("mouseover", colorDiv);
     board.insertAdjacentElement("beforeend", div);
   }
 }
@@ -30,7 +30,7 @@ function createBoard(size) {
 function getSize() {
   const input = prompt("Size of the board");
 
-  const message = document.querySelector("#text");
+  let message = document.querySelector("#text");
 
   if (input == "") {
     message.innerHTML = "Please provide a number";
@@ -55,7 +55,7 @@ function setColor(colorChoice) {
 }
 
 function resetBoard() {
-  let divs = document.querySelectorAll("div");
+  const divs = document.querySelectorAll("div");
 
   divs.forEach((div) => (div.style.backgroundColor = "white"));
 }
